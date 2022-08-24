@@ -12,7 +12,9 @@ library(janitor)
 ```
 
 
-https://waterdata.usgs.gov/nwis/uv?site_no=11118500 
+https://waterdata.usgs.gov/nwis/uv?site_no=11118500
+
+prompt: https://brunj7.github.io/EDS-214-analytical-workflows/day3-apis.html#Hands-on
 ```{r}
 
 # Choptank River near Greensboro, MD
@@ -32,6 +34,6 @@ plot the discharge time series
 ```{r}
 discharge_plot <- ggplot(rawDailyData, aes(x = date, y = x_00060_00003)) +
   geom_line() +
-  labs(x = "date", y = "discharge") +
+  labs(x = "date", y = "discharge") 
 ```
 
