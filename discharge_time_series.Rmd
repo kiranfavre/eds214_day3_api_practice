@@ -1,0 +1,37 @@
+---
+title: "discharge_time_series"
+output: html_document
+date: "2022-08-24"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(dataRetrieval)
+library(janitor)
+```
+
+
+https://waterdata.usgs.gov/nwis/uv?site_no=11118500 
+```{r}
+
+# Choptank River near Greensboro, MD
+siteNumber <- "11118500" 
+VenturaInfo <- readNWISsite(siteNumber)
+parameterCd <- "00060"
+
+#Raw daily data:
+rawDailyData <- readNWISdv(siteNumber,parameterCd,
+                      "2019-10-01","2020-10-05") %>% 
+  clean_names()
+
+```
+
+
+plot the discharge time series
+```{r}
+discharge_plot <- ggplot(rawDailyData, aes(x = date, y = x_00060_00003)) +
+  geom_line() +
+  labs(x = "date", y = "discharge") +
+```
+
