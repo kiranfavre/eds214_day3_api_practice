@@ -37,3 +37,34 @@ discharge_plot <- ggplot(rawDailyData, aes(x = date, y = x_00060_00003)) +
   labs(x = "date", y = "discharge") 
 ```
 
+
+
+
+Exercise 2
+
+```{r}
+# set inputs
+data_obj <- "https://knb.ecoinformatics.org/knb/d1/mn/v2/object/urn%3Auuid%3A7fc6f6db-c5ea-426a-a743-1f2edafb43b8"
+path <- "~/R/eds214_day3_api_practice"
+
+# download data and metadata
+library(metajam)
+download_d1_data(data_obj, path)
+
+```
+
+Read in the data
+```{r}
+household_data <- read_d1_files("~/R/eds214_day3_api_practice/doi_10.5063_F1CJ8BPH__household_language__csv")
+```
+
+```{r}
+household_df <- household_data$data
+```
+
+write code that will compute the percentage of Alaskan household speaking only English from 2009-2015
+```{r}
+percentage <- household_df %>% 
+  select()
+```
+
